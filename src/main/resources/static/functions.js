@@ -5,8 +5,8 @@ $(document).ready(function () {
 
 function registerSearch() {
     $("#search").submit(function (ev) {
-        event.preventDefault();
-        $.get($(this).attr('action'), {q: $("#q").val()}, function (data) {
+        ev.preventDefault();
+        $.get($(this).attr('action'), {q: $("#q").val(), max: $("#m").val()}, function (data) {
             $("#resultsBlock").html(Mustache.render(template, data));
         });
     });
